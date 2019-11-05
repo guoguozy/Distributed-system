@@ -1,0 +1,53 @@
+syntax = "proto3";
+// Message
+// The request message containing the user's name.
+message HelloRequest { string name = 1; }
+// The response message containing the greetings
+message HelloReply { string message = 1; }
+//简单算术运算的data，result
+message data {
+  int32 a = 1;
+  int32 b = 2;
+}
+message result { float result = 1; }
+//KNN算法的data，result
+message Knn_data {
+  int32 k = 1;
+  string testdata = 2;
+  string traindata = 3;
+  string labels = 4;
+}
+message Knn_result { string Knn_result = 1; }
+//K-means算法的data，result
+message K_means_data {
+  int32 num = 1;
+  int32 kind = 2;
+  repeated string km_data = 3;//数组
+}
+message K_means_result { string km_result = 1; }
+
+//Service
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello(HelloRequest) returns (HelloReply) {}
+}
+//简单算术运算
+service Calculate {
+  // add algorithm
+  rpc add(data) returns (result) {}
+  // multi algorithm
+  rpc multi(data) returns (result) {}
+  // substract algorithm
+  rpc sub(data) returns (result) {}
+  // divide algorithm
+  rpc div(data) returns (result) {}
+}
+//KNN
+service Knn {
+  rpc knn(Knn_data) returns (Knn_result) {}
+}
+//K-means 
+service K_means {
+  rpc k_means(K_means_data) returns (K_means_result) {}
+}
