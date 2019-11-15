@@ -1,0 +1,14 @@
+$TTL 86400
+$ORIGIN gzy-example.com.
+@  IN  SOA ns root(
+            2013031901      ;serial
+            12h     ;refresh
+            7200        ;retry
+            604800      ;expire
+            86400       ;mininum
+            )
+            NS  ns.gzy-example.com.
+            MX  10  mail.gzy-example.com.
+ns     IN  A   192.168.10.1
+www    IN  A   192.168.10.10
+mail   IN  A   192.168.10.20
