@@ -1,0 +1,5 @@
+- src 文件夹存放代码文件
+  - preprocess为预处理的代码
+  - network，tools为实现模型并训练预测的代码
+  - result.txt为预测结果
+- doc 文件夹为实验报告
